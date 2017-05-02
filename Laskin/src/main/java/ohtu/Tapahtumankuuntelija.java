@@ -13,14 +13,7 @@ public class Tapahtumankuuntelija implements ActionListener {
     private Sovelluslogiikka sovellus;
     private Map<JButton, Komento> komennot;
     private Komento edellinen;
-//    private JButton plus;
-//    private JButton miinus;
-//    private JButton nollaa;
-//    private JButton undo;
-//    private JTextField tuloskentta;
-//    private JTextField syotekentta;
-//    private Sovelluslogiikka sovellus;
-// 
+
     public Tapahtumankuuntelija(JButton plus, JButton miinus, JButton nollaa, JButton undo, JTextField tuloskentta, JTextField syotekentta) {
         this.nollaa = nollaa;
         this.undo = undo;

@@ -7,6 +7,7 @@ public class Nollaa implements Komento {
     private Sovelluslogiikka sovellus;
     private JTextField tuloskentta;
     private JTextField syotekentta;
+    private int edellinen;
     
     public Nollaa(Sovelluslogiikka sovellus, JTextField tuloskentta, JTextField syotekentta) {
         this.sovellus = sovellus;
@@ -16,6 +17,7 @@ public class Nollaa implements Komento {
 
     @Override
     public void suorita() {
+        edellinen = sovellus.tulos();
         sovellus.nollaa();
         int laskunTulos = sovellus.tulos();
         syotekentta.setText("");
@@ -24,7 +26,9 @@ public class Nollaa implements Komento {
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sovellus.plus(edellinen);
+        syotekentta.setText("");
+        tuloskentta.setText("" + edellinen);
     }
     
 }

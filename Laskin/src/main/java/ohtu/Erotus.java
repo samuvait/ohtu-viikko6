@@ -8,6 +8,7 @@ public class Erotus implements Komento {
     private Sovelluslogiikka sovellus;
     private JTextField tuloskentta;
     private JTextField syotekentta;
+    private int edellinen;
     
     public Erotus(Sovelluslogiikka sovellus, JTextField tuloskentta, JTextField syotekentta) {
         this.sovellus = sovellus;
@@ -22,6 +23,7 @@ public class Erotus implements Komento {
             arvo = Integer.parseInt(syotekentta.getText());
         } catch (Exception e) {
         }
+        edellinen = arvo;
         sovellus.miinus(arvo);
         int laskunTulos = sovellus.tulos();
         syotekentta.setText("");
@@ -30,7 +32,10 @@ public class Erotus implements Komento {
 
     @Override
     public void peru() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        sovellus.plus(edellinen);
+        int laskunTulos = sovellus.tulos();
+        syotekentta.setText("");
+        tuloskentta.setText("" + laskunTulos);
     }
     
 }

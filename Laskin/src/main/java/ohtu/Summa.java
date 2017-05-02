@@ -8,6 +8,7 @@ public class Summa implements Komento {
     private Sovelluslogiikka sovellus;
     private JTextField tuloskentta;
     private JTextField syotekentta;
+    private int edellinen;
     
     public Summa(Sovelluslogiikka sovellus, JTextField tuloskentta, JTextField syotekentta) {
         this.sovellus = sovellus;
@@ -22,6 +23,7 @@ public class Summa implements Komento {
             arvo = Integer.parseInt(syotekentta.getText());
         } catch (Exception e) {
         }
+        edellinen = arvo;
         sovellus.plus(arvo);
         int laskunTulos = sovellus.tulos();
         syotekentta.setText("");
@@ -30,7 +32,9 @@ public class Summa implements Komento {
 
     @Override
     public void peru() {
+        sovellus.miinus(edellinen);
+        int laskunTulos = sovellus.tulos();
         syotekentta.setText("");
-        System.out.println("peruttu");
+        tuloskentta.setText("" + laskunTulos);
     }
 }
