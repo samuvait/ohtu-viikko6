@@ -14,19 +14,7 @@ public class Main {
         Matcher m2 = query.playsIn("EDM")
                           .hasAtLeast(60, "points").build();
 
-        Matcher m = query.oneOf(m1, m2).build();
-//        Matcher m = query.playsIn("NYR")
-//                         .hasAtLeast(10, "goals")
-//                         .hasFewerThan(25, "assists").build();
-//
-//        for (Player player : stats.matches(m)) {
-//            System.out.println( player );
-//        }
-//        Matcher m = new Or( new And(new HasFewerThan(5, "goals"),
-//                             new HasAtLeast(21, "assists")),
-//                             new PlaysIn("PHI")
-//        );
-//        
+        Matcher m = query.not(m1, m2).build();
         for (Player player : stats.matches(m)) {
             System.out.println( player );
         }

@@ -34,4 +34,9 @@ public class QueryBuilder {
         m = new Or(m1, m2);
         return this;
     }
+    
+    public QueryBuilder not(Matcher m1, Matcher m2) {
+        m = new Not(m1, m2);
+        return this;
+    }
 }
